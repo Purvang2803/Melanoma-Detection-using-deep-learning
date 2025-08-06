@@ -6,57 +6,89 @@ This repository contains a Jupyter notebook that applies deep learning (CNN) to 
 
 ## 🔗 Dataset Used
 
-This project uses the [ISIC Skin Cancer dataset](https://www.kaggle.com/datasets/nodoubttome/skin-cancer9-classesisic) from the International Skin Imaging Collaboration (ISIC), which contains labeled dermoscopic images of various skin lesions.
+This project uses the [HAM10000 ("Human Against Machine with 10000 training images") dataset](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000), which includes labeled dermoscopic images of different types of skin lesions.
 
-The dataset includes 33,000+ RGB images of 7 different classes, helping build a robust skin lesion classifier.
+The dataset contains over 10,000 high-resolution RGB images divided into the following 7 classes:
+
+- **akiec**: Actinic keratoses and intraepithelial carcinoma
+- **bcc**: Basal cell carcinoma
+- **bkl**: Benign keratosis-like lesions
+- **df**: Dermatofibroma
+- **nv**: Melanocytic nevi
+- **vasc**: Vascular lesions
+- **mel**: Melanoma
 
 ---
 
 ## 📁 Contents
 
-* `Melanoma_Detection_using_deep_learning.ipynb`: The complete notebook with preprocessing, CNN architecture, training, and evaluation.
-* Visualizations for accuracy, loss, and confusion matrix.
+* `melanoma_classification_cnn.ipynb`: The complete notebook with preprocessing, CNN model, training, and evaluation.
+* Data visualizations: count plots, training/validation curves, and confusion matrix.
+* Evaluation metrics: accuracy, precision, recall, and F1-score.
 
 ---
 
 ## 🎯 Objective
 
-To detect and classify types of skin lesions — especially melanoma — using a Convolutional Neural Network (CNN), improving early diagnosis accuracy through image-based deep learning.
+To accurately detect and classify skin lesions — with a primary focus on melanoma — using a Convolutional Neural Network (CNN), aiding in early detection and reducing misdiagnosis risks.
 
 ---
 
 ## 🛠️ Libraries Used
 
-The following Python libraries are used in this notebook:
+The notebook uses the following Python libraries:
 
-* `tensorflow` & `keras` — for deep learning model building  
-* `pandas` & `numpy` — for data manipulation  
-* `matplotlib` & `seaborn` — for plotting and visualization  
-* `sklearn` — for evaluation metrics like accuracy, precision, recall, F1-score  
-* `cv2` — for image resizing and processing (optional)
+- `tensorflow`, `keras`: For deep learning model development  
+- `numpy`, `pandas`: For data handling and analysis  
+- `matplotlib`, `seaborn`: For visualizations  
+- `sklearn`: For model evaluation and performance metrics  
+- `cv2`: For image processing (resizing, color conversion)
 
 ---
 
 ## 🔍 Key Steps
 
-1. **Data Loading & Normalization**: Images are resized and pixel values are normalized.
-2. **Label Encoding**: Skin lesion categories are encoded numerically.
-3. **Train-Test Split**: Dataset is split into training and test sets with stratified sampling.
-4. **Model Building**: A CNN model is created using Keras Sequential API.
-5. **Training**: The model is trained with appropriate callbacks.
-6. **Evaluation**: Metrics like accuracy, precision, recall, and F1-score are computed.
-7. **Visualization**: Plots include training/validation accuracy, loss, and a confusion matrix.
+1. **Data Preprocessing**
+   - Load metadata and image files from directory
+   - Normalize and resize images
+   - Handle imbalanced data using class weights or augmentation
+
+2. **Exploratory Data Analysis**
+   - Countplot of lesion types
+   - Sample image grid from each class
+
+3. **Label Encoding**
+   - Encode categorical labels (`dx`) into numerical values
+
+4. **Train-Test Split**
+   - Stratified sampling to maintain class distribution
+   - Separate training, validation, and test sets
+
+5. **Model Building**
+   - Custom CNN and EfficientNetB0 transfer learning
+   - Dropout, BatchNormalization, ReLU activation
+
+6. **Training**
+   - Use of early stopping and learning rate reduction
+   - Epoch-wise performance tracking
+
+8. **Results Visualization**
+   - Accuracy/Loss curves
+   - Model predictions vs true labels
 
 ---
 
+## 📊 Visuals Included
 
+- 📈 **Training vs Validation Accuracy/Loss**
+- 📊 **Confusion Matrix Heatmap**
+- 🔍 **Sample Image Predictions**
 
-
+---
 
 ## 🚀 How to Run
 
 1. Clone the repository:
-
    ```bash
-   git clone https://github.com/yourusername/melanoma-detection-cnn.git
-   cd melanoma-detection-cnn
+   git clone https://github.com/yourusername/melanoma-ham10000-cnn.git
+   cd melanoma-ham10000-cnn
